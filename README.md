@@ -1,4 +1,4 @@
-# Company Bankruptcy Prediction
+# FutureProof: Bankruptcy Detection
 
 This project analyzes and predicts company bankruptcies using financial data from the Taiwan Economic Journal (1999-2009). The dataset includes financial performance metrics, with bankruptcy defined based on Taiwan Stock Exchange regulations.
 
