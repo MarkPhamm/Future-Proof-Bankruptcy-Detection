@@ -1,79 +1,117 @@
 # FutureProof: Bankruptcy Detection
 
-This project analyzes and predicts company bankruptcies using financial data from the Taiwan Economic Journal (1999-2009). The dataset includes financial performance metrics, with bankruptcy defined based on Taiwan Stock Exchange regulations.
+A machine learning project that analyzes and predicts company bankruptcies using financial data from the Taiwan Economic Journal (1999–2009). Bankruptcy labels are defined in accordance with Taiwan Stock Exchange regulations.
 
-## How to run the code
-- Look through the Jupyter notebook ,CompanyBankruptcyPrediction.ipynb, to gain the findings, analysis and key insights. At the end of the notebook, it preview a dashboard
-- To run it, run "streamlit run application.py" in the terminal. It will return a streamlit app in your local web
-  <img width="683" alt="image" src="https://github.com/user-attachments/assets/ab406261-9ba6-4a24-9e6a-908c09b5fb57" />
-- insert financial metrics into that dashboard so that it can predict if the company faces the likelyhood of bankruptcy. It also implies some important financial indicators so that company can modify their plan and business strategy to avoid being bankrupted
+---
+
+## 🛠 Skills & Technologies
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-337AB7?style=for-the-badge&logo=xgboost&logoColor=white)
+![LightGBM](https://img.shields.io/badge/LightGBM-02A88E?style=for-the-badge&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![SMOTE](https://img.shields.io/badge/SMOTE-6A0DAD?style=for-the-badge&logoColor=white)
+![SVM](https://img.shields.io/badge/SVM-E34F26?style=for-the-badge&logoColor=white)
+![Random Forest](https://img.shields.io/badge/Random%20Forest-228B22?style=for-the-badge&logoColor=white)
+
+---
+
+## Getting Started
+
+1. **Explore the analysis** — Open `CompanyBankruptcyPrediction.ipynb` to review the full findings, methodology, and key insights. A dashboard preview is included at the end of the notebook.
+
+2. **Launch the dashboard** — Run the following command in your terminal:
+   ```bash
+
+    # 1. Clone the repository
+    
+    git clone https://github.com/YOUR_USERNAME/bankruptcy-prediction.git
+    cd bankruptcy-prediction
+    
+    # 2. Create virtual environment (recommended)
+    
+    python -m venv venv
+    source venv/bin/activate      # Mac/Linux
+    venv\Scripts\activate         # Windows
+    
+    # 3. Install dependencies
+    
+    pip install -r requirements.txt
+    
+    # 4. Run the application
+    
+    streamlit run application.py
+   
+   ```
+   This will open an interactive web app locally. Enter a company's financial metrics to receive a bankruptcy risk prediction, along with guidance on which financial indicators to monitor and improve.
+
 <img width="978" alt="image" src="https://github.com/user-attachments/assets/2705e64f-3758-45b8-9121-d1e279d0ab7d" />
 
+---
 
-## Key Insights and Findings
+## Dataset Overview
 
-### Data Overview
-- **Dataset Size**: 6,819 companies (1999-2009)
-- **Class Distribution**:
-  - Non-bankrupt: 6,599 (96.8%)
-  - Bankrupt: 220 (3.2%)
-- **Key Features**: 
-  - Financial ratios such as ROA, operating profit rate, borrowing dependency, and equity-to-liability ratio.
-- **Class Imbalance**: 
-  - Addressed using SMOTE (Synthetic Minority Oversampling Technique).
+| Attribute | Detail |
+|---|---|
+| Source | Taiwan Economic Journal |
+| Period | 1999–2009 |
+| Companies | 6,819 |
+| Non-bankrupt | 6,599 (96.8%) |
+| Bankrupt | 220 (3.2%) |
+
+Key features include financial ratios such as ROA, operating profit rate, borrowing dependency, and equity-to-liability ratio. Class imbalance was addressed using **SMOTE** (Synthetic Minority Oversampling Technique).
 
 ---
 
-### Predictive Modeling
-- **Preprocessing**:
-  - Dataset was clean (no missing values or duplicates).
-  - Scaling was unnecessary due to normalized values.
-- **Model Used**: 
-  - *[Machine learning, Linear regression, Neural network, XGboost, Random Forest, LightGBM, SVM, etc.]*  
-- **Performance Metrics**:
-  - **Accuracy**: *[94%]*
-  - **Precision (Bankruptcy)**: *[98%]*
-  - **Recall (Bankruptcy)**: *[100%]*
-  - **F1-Score**: *[99%]*
+## Modeling
 
-<img width="392" alt="image" src="https://github.com/user-attachments/assets/088996e3-662a-4371-9ec5-0f594f978b96" />
+**Preprocessing:** The dataset required no imputation (no missing values or duplicates) and no scaling, as values were already normalized.
+
+**Models evaluated:** Logistic Regression, Neural Network, XGBoost, Random Forest, LightGBM, SVM, and others.
+
+**Best model performance:**
+
+| Metric | Score |
+|---|---|
+| Accuracy | 94% |
+| Precision (Bankruptcy) | 98% |
+| Recall (Bankruptcy) | 100% |
+| F1-Score | 99% |
 
 ---
 
-### Key Predictors of Bankruptcy
-1. **Return on Assets (ROA)**: Lower ROA strongly correlates with bankruptcy.
-2. **Operating Profit Rate**: Consistently negative values indicate poor financial health.
-3. **Borrowing Dependency**: High reliance on borrowed capital is a major red flag.
-4. **Equity-to-Liability Ratio**: Lower ratios signify higher financial risk.
-5. **Net Income to Stockholder’s Equity**: Persistent low returns signal inefficiency and risk.
+## Key Predictors of Bankruptcy
 
-<img width="436" alt="image" src="https://github.com/user-attachments/assets/cfc441bd-0687-4666-bbe3-73d1edf76e2b" />
+1. **Return on Assets (ROA)** — Lower ROA is strongly associated with bankruptcy risk.
+2. **Operating Profit Rate** — Sustained negative values indicate deteriorating financial health.
+3. **Borrowing Dependency** — High reliance on debt is a significant risk signal.
+4. **Equity-to-Liability Ratio** — Lower ratios reflect elevated financial vulnerability.
+5. **Net Income to Stockholders' Equity** — Persistently low returns suggest operational inefficiency.
 
 ---
 
 ## Limitations
-1. **Class Imbalance**:
-   - Despite SMOTE, residual imbalance affects precision for predicting bankruptcies.
-2. **Feature Selection**:
-   - Potential redundancy or collinearity among features.
-3. **Time-Specific Data**:
-   - Findings may not generalize to current economic conditions.
-4. **Data Quality Assumptions**:
-   - Relied on the Taiwan Economic Journal’s data accuracy.
+
+- **Class imbalance** — Despite SMOTE, residual imbalance may affect precision on real-world data.
+- **Feature collinearity** — Some financial ratios may overlap, introducing redundancy.
+- **Temporal scope** — Results are specific to Taiwan's economic context from 1999–2009 and may not generalize to other periods or markets.
+- **Data quality** — Model performance depends on the accuracy of the source data.
 
 ---
 
 ## Potential Improvements
-1. **Advanced Balancing**:
-   - Combine SMOTE with under-sampling or ensemble methods.
-2. **Feature Engineering**:
-   - Explore derived features, such as lagged indicators, for deeper insights.
-3. **Model Enhancements**:
-   - Investigate deep learning models for complex interactions.
-4. **Economic Adjustments**:
-   - Update financial ratios for inflation or economic changes.
+
+- Combine SMOTE with under-sampling or ensemble resampling strategies.
+- Engineer derived features such as lagged financial indicators.
+- Explore deep learning architectures for capturing complex non-linear relationships.
+- Adjust financial ratios to account for inflation or macroeconomic shifts.
 
 ---
 
 ## Conclusion
-This project highlights the potential of predictive models to identify at-risk companies using financial data. By leveraging key metrics and addressing class imbalance, the model provides valuable insights into bankruptcy risks. Future work should focus on refining features and extending applicability to broader datasets and time periods.
+
+This project demonstrates the viability of machine learning for early bankruptcy detection using financial ratios. By tackling class imbalance and identifying the most predictive indicators, the model offers actionable insights for risk assessment. Future iterations should explore broader datasets, updated economic conditions, and more sophisticated modeling approaches.
