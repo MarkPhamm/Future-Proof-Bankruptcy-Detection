@@ -6,7 +6,7 @@ import pandas as pd
 from pathlib import Path
 import pandas as pd
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 data_path = BASE_DIR / "data" / "data.csv"
 
 df = pd.read_csv(data_path).drop("Bankrupt?", axis =1)
